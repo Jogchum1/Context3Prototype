@@ -7,7 +7,7 @@ public class ShipMovement : MonoBehaviour
 {
     public float MoveSpeed = 5;
     public float RotationSpeed = 0.1f;
-
+    public LayerMask WaterLayer;
     private InputHandler Input;
 
     private void Awake()
@@ -35,34 +35,20 @@ public class ShipMovement : MonoBehaviour
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        
-        var speed = MoveSpeed * Time.deltaTime;
-        var targetPosition = transform.position + targetVector * speed;
-        transform.position = targetPosition;
+        if (IsWatered())
+        {
+            var speed = MoveSpeed * Time.deltaTime;
+            var targetPosition = transform.position + targetVector * speed;
+            transform.position = targetPosition;
+
+        }
         return targetVector;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool IsWatered()
     {
-        if(other.gameObject.tag == "Water")
-        {
-            MoveSpeed = 5;
-        }
-        else
-        {
-            MoveSpeed = 0;
-        }
+        return Physics.Raycast(transform.position, Vector3.down, 1.1f, WaterLayer);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Water")
-        {
-            MoveSpeed = 5;
-        }
-        else
-        {
-            MoveSpeed = 0;
-        }
-    }
+    
 }
