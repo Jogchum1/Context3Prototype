@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,29 +8,61 @@ public class ShipMovement : MonoBehaviour
     public float MoveSpeed = 5;
     public float RotationSpeed = 0.1f;
 
+    private InputHandler Input;
 
-    private void Start()
+    private void Awake()
     {
+        Input = GetComponent<InputHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveShip();
+        var targetVector = new Vector3(Input.InputVector.x, 0, Input.InputVector.y);
+
+        var movementVector = MoveTowardTarget(targetVector);
+        RotateTowardMovementVector(movementVector);
+
     }
 
-    public void MoveShip()
+    private void RotateTowardMovementVector(Vector3 movementVector)
     {
-        float hor = Input.GetAxis("Horizontal");
-        float xPos = MoveSpeed * hor;
+        if (movementVector.magnitude == 0)
+            return;
+        var rotation = Quaternion.LookRotation(movementVector);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, RotationSpeed);
+    }
 
-        float ver = Input.GetAxis("Vertical");
-        float rotation = RotationSpeed * ver;
+    private Vector3 MoveTowardTarget(Vector3 targetVector)
+    {
+        
+        var speed = MoveSpeed * Time.deltaTime;
+        var targetPosition = transform.position + targetVector * speed;
+        transform.position = targetPosition;
+        return targetVector;
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            MoveSpeed = 5;
+        }
+        else
+        {
+            MoveSpeed = 0;
+        }
+    }
 
-        Vector3 CurrentAngle = transform.localEulerAngles;
-        transform.localEulerAngles = new Vector3(CurrentAngle.x, CurrentAngle.y + rotation, CurrentAngle.z);
-
-        transform.Translate(Vector3.left * xPos* MoveSpeed);
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            MoveSpeed = 5;
+        }
+        else
+        {
+            MoveSpeed = 0;
+        }
     }
 }
