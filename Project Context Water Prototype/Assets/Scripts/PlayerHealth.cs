@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth
+public class PlayerHealth : MonoBehaviour, IDamageablePlayer
 {
     public int hp;
 
     public PlayerHealth()
     {
 
+    }
+
+    public void TakeDamage()
+    {
+        hp--;
+        Debug.Log("Auw");
     }
 
 

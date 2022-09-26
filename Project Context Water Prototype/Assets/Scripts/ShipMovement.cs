@@ -47,6 +47,7 @@ public class ShipMovement : MonoBehaviour
 
     private bool IsWatered()
     {
+        Debug.Log(Physics.Raycast(transform.position, Vector3.down, 1.1f, WaterLayer));
         return Physics.Raycast(transform.position, Vector3.down, 1.1f, WaterLayer);
     }
 
