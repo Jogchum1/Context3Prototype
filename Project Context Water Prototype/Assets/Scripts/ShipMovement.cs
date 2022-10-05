@@ -42,6 +42,12 @@ public class ShipMovement : MonoBehaviour
             transform.position = targetPosition;
 
         }
+        else
+        {
+            var speed = MoveSpeed /10 * Time.deltaTime;
+            var targetPosition = transform.position + targetVector * speed;
+            transform.position = targetPosition;
+        }
         return targetVector;
     }
 
