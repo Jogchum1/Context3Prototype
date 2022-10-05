@@ -6,6 +6,7 @@ public class TowerShooting : MonoBehaviour
 {
     public GameObject player;
     public GameObject arrow;
+    public bool CityCaptured = false;
 
     private GameObject arrowShoot;
 
@@ -21,11 +22,15 @@ public class TowerShooting : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance <= 10)
+        if (CityCaptured == false)
         {
-            Shoot(distance);
+            if (distance <= 10)
+            {
+                Shoot(distance);
+            }
         }
     }
+
 
     void Shoot(float distance)
     {

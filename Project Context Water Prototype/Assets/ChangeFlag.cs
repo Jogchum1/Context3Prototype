@@ -6,7 +6,7 @@ public class ChangeFlag : MonoBehaviour, IInteractable
 {
 
     public Material PrinseVlag;
-
+    
 
     public void Interact()
     {

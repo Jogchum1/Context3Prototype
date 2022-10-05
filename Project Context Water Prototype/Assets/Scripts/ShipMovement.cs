@@ -9,7 +9,7 @@ public class ShipMovement : MonoBehaviour
     public float RotationSpeed = 0.1f;
     public LayerMask WaterLayer;
     private InputHandler Input;
-
+     
     private void Awake()
     {
         Input = GetComponent<InputHandler>();
