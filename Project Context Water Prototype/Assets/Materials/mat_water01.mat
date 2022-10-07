@@ -29,12 +29,14 @@ Material:
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
+    MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -99,12 +101,12 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaCutoffEnable: 0
-    - _AlphaDstBlend: 10
+    - _AlphaDstBlend: 1
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
     - _Blend: 0
-    - _BlendMode: 0
+    - _BlendMode: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -119,18 +121,18 @@ Material:
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 10
+    - _DstBlend: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnvironmentReflections: 1
-    - _FoamOffset: 0.215
+    - _FoamOffset: 0.3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NormalExtraSize: 10
-    - _NormalStrengthExtra: 11.81
-    - _NormalStrengthRipple: 0.5
+    - _NormalStrengthExtra: 1
+    - _NormalStrengthRipple: 1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.005
@@ -141,11 +143,11 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RenderQueueType: 3
+    - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _RippleDissolve: 8
-    - _RippleScale: 9.84
-    - _Smootheness: 0.6
+    - _RippleDissolve: 5.78
+    - _RippleScale: 24.35
+    - _Smootheness: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -163,7 +165,7 @@ Material:
     - _SupportDecals: 1
     - _Surface: 0
     - _SurfaceType: 1
-    - _Transparency: 5.97
+    - _Transparency: 4.9
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -178,15 +180,15 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.61877537, b: 2, a: 1}
-    - _Color: {r: 0, g: 0.61877537, b: 2, a: 1}
+    - _BaseColor: {r: 0, g: 0.39404154, b: 0.6037736, a: 1}
+    - _Color: {r: 0, g: 0.39404154, b: 0.6037736, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FoamColor: {r: 0.4669811, g: 0.7536427, b: 1, a: 1}
-    - _NormalSpeed: {r: 0.05, g: 0.1, b: 0, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0}
+    - _NormalSpeed: {r: 0.1, g: 0.2, b: 0, a: 0}
     - _RadialStrength: {r: 1, g: 1, b: 0, a: 0}
-    - _RippleColor: {r: 0.54245275, g: 0.97640496, b: 1, a: 0}
-    - _RippleSpeed: {r: 1, g: 0.1, b: 0, a: 0}
+    - _RippleColor: {r: 0.25658593, g: 0.5849056, b: 0.58209944, a: 0}
+    - _RippleSpeed: {r: 1, g: 0.2, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6053060467473865692

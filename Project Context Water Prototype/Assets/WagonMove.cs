@@ -20,7 +20,8 @@ public class WagonMove : MonoBehaviour, IDamageable
     void Update()
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, City.transform.position, Speed * Time.deltaTime);
-
+        Quaternion targetRotation = Quaternion.LookRotation(transform.position -  City.transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 90);
     }
     public void TakeDamage()
     {

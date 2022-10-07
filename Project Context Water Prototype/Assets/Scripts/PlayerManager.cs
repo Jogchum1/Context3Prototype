@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject CanonnBall;
     public GameObject Player;
-
+    public ParticleSystem CanonSmoke;
     public Slider HealthSlider;
 
     public int Healthpoints;
@@ -41,8 +41,9 @@ public class PlayerManager : MonoBehaviour
             SceneManager.LoadScene(scene.name);
 
         }
+        
 
-        playerShoot.Shoot(CanonnBall, Player);
+        playerShoot.Shoot(CanonnBall, Player, CanonSmoke);
     }
 
     

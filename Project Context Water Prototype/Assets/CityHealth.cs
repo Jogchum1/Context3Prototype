@@ -37,7 +37,7 @@ public class CityHealth : MonoBehaviour, IDamageable
     {
         if(other.gameObject.tag == "Koets")
         {
-            CityHp++;
+            CityHp += 3;
             Destroy(other.gameObject);
         }
     }
