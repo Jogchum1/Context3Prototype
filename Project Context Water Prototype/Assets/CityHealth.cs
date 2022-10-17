@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class CityHealth : MonoBehaviour, IDamageable
 {
@@ -31,6 +33,11 @@ public class CityHealth : MonoBehaviour, IDamageable
     public void TakeDamage()
     {
         CityHp--;
+        if(CityHp <= 0)
+        {
+            //ENDING
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
